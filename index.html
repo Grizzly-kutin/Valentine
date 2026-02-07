@@ -5,42 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Will You Be My Valentine? 💘</title>
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #f8b7c6, #ffe3ea);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow: hidden;
+      padding: 1rem;
+      overflow-x: hidden; /* prevents horizontal scroll */
     }
     .card {
       background: white;
-      padding: 2.5rem 3rem;
+      padding: 2rem;
       border-radius: 24px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       text-align: center;
-      max-width: 420px;
+      width: 100%;         /* fill available space */
+      max-width: 420px;    /* caps width */
       position: relative;
       z-index: 2;
     }
     h1 {
-      margin-top: 0;
+      margin-top: 1rem;
       font-size: 2rem;
       color: #ff4d6d;
+      word-wrap: break-word;
     }
     p {
       font-size: 1.1rem;
       color: #444;
-      margin-bottom: 2rem;
+      margin: 1rem 0 2rem;
     }
     .buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
-      position: relative;
+      flex-wrap: wrap;
     }
     button {
       padding: 0.8rem 1.4rem;
@@ -49,6 +51,8 @@
       border: none;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex: 1 1 auto;
+      min-width: 120px;
     }
     button:active { transform: scale(0.95); }
     #yesBtn {
@@ -56,16 +60,20 @@
       color: white;
       box-shadow: 0 8px 20px rgba(255,77,109,0.4);
     }
-    #noBtn {
-      background: #eee;
-      color: #666;
-      position: relative;
-    }
     #message {
       margin-top: 1.5rem;
       font-size: 1.2rem;
       color: #ff4d6d;
       display: none;
+      word-wrap: break-word;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
     .heart {
       position: absolute;
@@ -91,11 +99,18 @@
       0% { transform: translateY(0) rotate(45deg); opacity: 1; }
       100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
     }
+
+    /* RESPONSIVE TEXT */
+    @media (max-width: 400px) {
+      h1 { font-size: 1.6rem; }
+      p { font-size: 1rem; }
+      button { font-size: 0.9rem; padding: 0.6rem 1rem; }
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="photo.jpg" alt="Us" style="width:100%; border-radius:20px; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(0,0,0,0.15);" />
+    <img src="photo.jpg" alt="Us" />
     <h1>Hey Jayleigh 💕</h1>
     <p>Every day with you feels like love in its purest form. You make my world softer, warmer, and brighter just by being in it.</p>
     <h1>Will you be my Valentine?</h1>
